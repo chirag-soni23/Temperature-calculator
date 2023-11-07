@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://play-lh.googleusercontent.com/Myal1Y9fJ-HIEIidw0SLXs56vOcYgRcDeQFKtKsEvp8fm-l87oWyAIrSoodHw3LU1zw=w240-h480-rw" type="image/x-icon">
+    <title>Temperature Convertor</title>
+</head>
+<style>
+    *{
+        font-family: sans-serif;
+    }
+    body{
+        padding: 50px 100px;
+    }
+    h1{
+        text-align: center;
+    }
+    #container{
+        text-align: center;
+        background-color: blueviolet;
+        padding: 50px;
+    }
+    .input-div{
+        display: inline-block;
+    }
+    .inp{
+        padding: 5px 10px;
+        margin: 10px;
+        font-size: 30px;
+        font-weight: bold;
+        width: 250px;
+        text-align: center;
+    }
+    label{
+        font-size: 22px;
+        color: #fff;
+    }
+</style>
+<body>
+    <h1>Temperature Convertor</h1>
+    <div id="container">
+        <div class="input-div">
+            <label>Celsius</label> <br>
+            <input type="number" value="0" id="cel" class="inp">
+        </div>
+        <div class="input-div">
+            <label>Farhenite</label> <br>
+            <input type="number"value='32' id="fah" class="inp">
+        </div>
+    </div>
+    
+</body>
+<script>
+    var cel = document.getElementById('cel');
+    var fah = document.getElementById('fah');
+
+    cel.addEventListener('input',function(){
+        // console.log('celsius');
+        let c = this.value;
+        let f = (c * 9/5) + 32;
+        if(!Number.isInteger(f)){
+            f = f.toFixed(4)
+        }
+        fah.value = f;  
+    });
+    fah.addEventListener('input',function(){
+        // console.log('farhenite');
+        let f = this.value;
+        let c = (f - 32) * 5/9;
+        if(!Number.isInteger(c)){
+            c = c.toFixed(4)
+        }
+        cel.value = c;
+    });
+</script>
+</html>
